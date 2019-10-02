@@ -1,0 +1,80 @@
+#main{
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+     user-select: none;
+}
+
+#mapa{
+    border-spacing: 0px;
+}
+
+#mapa > tr > th {
+    height: 40px;
+    width: 40px;
+    border:1px grey solid;
+    margin: 0;    
+    padding: 0;
+}
+
+.standView{
+    background-color: rgba(243, 30, 30, 0.5);
+    height: 40px;
+    width: 40px;
+    border:1px grey solid;
+    margin: 0;
+
+}
+
+#standMenu {
+    position: absolute;
+    width: 350px;
+    border:1px black solid;
+    background-color: white;
+    display: none;
+    line-height: 40px;
+}
+
+#areaLivreMenu {
+    position: absolute;
+    height: 60px;
+    border:1px black solid;
+    background-color: white;
+    display: none;
+    line-height: 60px;
+}
+
+#representante {
+    display: none;
+    border:1px black solid;
+    position: absolute;
+    display: none;
+    pointer-events: none;
+}
+
+.standView{
+    border-radius: 8px;
+    border:3px rgba(46, 4, 4, 0.5) solid;
+    position: absolute;
+    pointer-events: none;
+    background-color: brown;
+    text-align: center;
+    /*line-height: 40px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.areaIndisponivel{
+    background-color: grey;
+    color:grey;
+}
+
+.posicaoValida{
+    background-color: rgba(48, 243, 30, 0.6);;
+}
+
+.posicaoInvalida{
+    background-color: rgba(252, 7, 7, 0.6);;
+}
