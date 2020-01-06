@@ -59,12 +59,12 @@ function Mapa(largura, altura) {
         }
     }
 
-    this.buscarPosicao = function (x, y) {
+    this.buscarPosicao = (x, y) => {
         //buscarStand-ajax
         return this.tables[y - 1][x - 1];
     }
 
-    this.disponibilizarArea = function (x, y) {
+    this.disponibilizarArea = (x, y) => {
         this.tables[y - 1][x - 1] = "0";
         //jogar x y num json
         //disponibilizarArea-ajax
@@ -72,7 +72,7 @@ function Mapa(largura, altura) {
         resetarMenus();
     }
 
-    this.inutilizarArea = function (x, y) {
+    this.inutilizarArea = (x, y) => {
         this.tables[y - 1][x - 1] = "X";
         //jogar x y num json
         //inutilizarArea-ajax
@@ -82,14 +82,14 @@ function Mapa(largura, altura) {
 
     //converter para JSON
     //RECEBE UM VETOR VINDO DA TABELA DO BANCO CONTENDO AS AREAS INUTILIZADAS DO MAPA
-    this.areasInutilizadas = function (areas) {
+    this.areasInutilizadas = (areas) => {
         for (aux = 0; aux < areas.length; aux++) {
             this.tables[areas[aux][1] - 1][areas[aux][0] - 1] = "X";
         }
     }
 
     //CRIA UM OBJETO STAND E ADD NA PRIMEIRA POSIÇÃO VAGA NO MAPA
-    this.adicionarStand = function (stand) {
+    this.adicionarStand = (stand) => {
         this.tables[stand.y - 1][stand.x - 1] = stand.id + "";
         y = stand.y;
         x = stand.x;
@@ -97,7 +97,7 @@ function Mapa(largura, altura) {
     }
 
     //RECEBER VETOR AJAX STANDS CONTENDO ID,X,Y,ALTURA E LARGURA
-    this.alocarStands = function (stands) {
+    this.alocarStands = (stands) => {
         for (aux = 0; aux < stands.length; aux++) {
             for (y = stands[aux].y - 1; y < (stands[aux].y - 1) + stands[aux].altura; y++) {
                 for (x = stands[aux].x - 1; x < (stands[aux].x - 1) + stands[aux].largura; x++) {
@@ -122,7 +122,7 @@ function Mapa(largura, altura) {
 
     //AJAX que realocara o stand/ apagando o ele e o reescrevendo
     //apos realocar o objeto deve ter seus dados alterados e enviados por AJAX
-    this.realocarStand = function (stand) {
+    this.realocarStand = (stand) => {
         for (y = stand.y - 1; y < (stand.y - 1) + stand.alt; y++) {
             for (x = stand.x - 1; x < (stand.x - 1) + stand.larg; x++) {
                 if (this.tables[y][x] == stand.id + "") {
@@ -140,7 +140,7 @@ function Mapa(largura, altura) {
     //caso contrario sugere novo local(caso esteja movendo ele)
     //* FAZER verificarTerreno para MOVER e para GIRAR stand;
     //this.verificarTerreno = function (id, larguraInicial, alturaInicial, larguraFinal, alturaFinal) {
-    this.verificarTerreno = function (id, xInicial, yInicial, largura, altura) {
+    this.verificarTerreno = (id, xInicial, yInicial, largura, altura) => {
         //                                   1          1        1        2
         no_error = true;
         if ((xInicial - 1) + largura <= this.largura && (yInicial - 1) + altura <= this.altura) {
@@ -158,7 +158,7 @@ function Mapa(largura, altura) {
         return no_error;
     }
 
-    this.reduzirTerreno = function (stand) {
+    this.reduzirTerreno = (stand) => {
         for (y = stand.y - 1; y < (stand.y - 1) + stand.alt; y++) {
             for (x = stand.x - 1; x < (stand.x - 1) + stand.larg; x++) {
                 if (this.tables[y][x] == stand.id + "") {
